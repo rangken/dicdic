@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+require 'commander/import'
+require 'terminal-table'
+require 'term/ansicolor'
+require 'locale'
+require 'dicdic'
+
+HighLine.track_eof = false # Fix for built-in Ruby
+Signal.trap("INT") {} # Suppress backtrace when exiting command
+
+program :version, Dicdic::VERSION
+program :description, 'A command-line interface for the iOS Provisioning Portal'
+program :name, 'DicDic'
+
+default_command :help
+
+require 'dicdic/commands'
