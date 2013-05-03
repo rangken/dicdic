@@ -10,7 +10,7 @@ module Dicdic
 		def translate(sentence,start_lang,dest_lang)
 			result = ""
 			result += "#{sentence}"
-			result += "(#{start_lang})".red
+			result += "(#{start_lang})"
 			result += " --> "
 			get(Dicdic::TRANSLATE_HOSTNAME) do |page|
 				search_result = page.form_with(:name => 'text_form') do |search|
@@ -21,7 +21,7 @@ module Dicdic
 				search_result.parser.xpath('//div/span[@id="result_box"]').each do |row|
 	          		row.xpath('span/text()').each do |span_row|
 	          			result += "#{span_row}"
-	          			result += "(#{dest_lang})".yellow
+	          			result += "(#{dest_lang})"
 	          		end		          
 		        end
 			end
