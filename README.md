@@ -1,0 +1,4 @@
+dicdic
+======
+
+Google Translater Termial
